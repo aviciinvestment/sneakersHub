@@ -23,19 +23,25 @@ const Filter = ({
         }
       >
         <div style={filter === 1 ? { color: "blue" } : null} onClick={all}>
-          All
+          <h5 style={createitems.length === 0 ? { display: "none" } : null}>
+            All
+          </h5>
         </div>
         <div style={filter === 2 ? { color: "blue" } : null} onClick={active}>
-          Active
+          <h5 style={createitems.length === 0 ? { display: "none" } : null}>
+            Active
+          </h5>
         </div>
         <div
           style={filter === 3 ? { color: "blue" } : null}
           onClick={completed}
         >
-          Completed
+          <h5 style={createitems.length === 0 ? { display: "none" } : null}>
+            Completed
+          </h5>
         </div>
       </div>
-      <div className="advice">Drag and drop to reorder list</div>
+      <div className="advice">whats your task for today</div>
     </div>
   );
 };

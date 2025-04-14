@@ -61,6 +61,7 @@ const App = () => {
         <Header modestate={modestate} mode={mode} />
         <Create oncreateitems={handlecreateitem} mode={mode} />
         <Todos
+          setitem={setcreateitems}
           deleteone={deleteone}
           item={createitems}
           onDeleteitems={deleteitems}

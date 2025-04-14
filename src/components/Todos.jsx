@@ -2,13 +2,12 @@ import React from "react";
 import { useState } from "react";
 import cancel from "../assets/icon-cross.svg";
 
-const Todos = ({ item, onDeleteitems, mode, deleteone, filter }) => {
+const Todos = ({ item, onDeleteitems, mode, deleteone, filter, setitem }) => {
   const [checked, setChecked] = useState(false);
   const items = [];
   if (filter === 1) {
     items.push(...item);
-  }
-  if (filter === 2) {
+  } else if (filter === 2) {
     items.push(
       ...item.filter((elem) => {
         return !elem.state;
@@ -33,14 +32,16 @@ const Todos = ({ item, onDeleteitems, mode, deleteone, filter }) => {
 
   const checkedclicked = (e) => {
     setChecked(!checked);
-    items[Number(e.target.dataset.user)].state = checked;
+    const updateditem = [...items];
+    updateditem[Number(e.target.dataset.user)].state = checked;
+    setitem(updateditem);
   };
 
   function clear() {
     onDeleteitems(items);
   }
   return (
-    <div>
+    <div style={items.length === 0 ? { display: "none" } : null}>
       <div
         className="alltodos"
         style={

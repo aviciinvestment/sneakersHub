@@ -1,14 +1,17 @@
 body {
   background-image: url("assets/bg-desktop-dark.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100%;
+  background-clip: border-box;
+  background-position: top;
   background-color: hsl(235, 21%, 11%);
   font-family: Arial, Helvetica, sans-serif;
 }
 .body {
   background-image: url("assets/bg-desktop-light.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100%;
+  background-position: top;
   background-color: hsl(0, 0%, 98%);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -65,6 +68,7 @@ body {
 .Tick_effect {
   background-image: url("assets/bg-mobile-light.jpg");
   background-size: contain;
+
   text-align: center;
   color: white;
   border: none;
@@ -137,7 +141,8 @@ body {
   body {
     background-image: url("assets/bg-mobile-dark.jpg");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100%;
+    background-position: top;
     background-color: hsl(235, 21%, 11%);
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold",
       sans-serif sans-serif;
@@ -145,7 +150,8 @@ body {
   .body {
     background-image: url("assets/bg-mobile-light.jpg");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100%;
+    background-position: top;
     background-color: hsl(0, 0%, 98%);
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold",
       sans-serif sans-serif;
