@@ -134,7 +134,7 @@ body {
   font-size: 1.2rem;
   color: hsl(236, 9%, 61%);
 }
-@media screen and (max-width: 325px) {
+@media screen and (max-width: 500px) {
   body {
     background-image: url("assets/bg-mobile-dark.jpg");
     background-repeat: no-repeat;
