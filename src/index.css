@@ -3,16 +3,14 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-color: hsl(235, 21%, 11%);
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold",
-    sans-serif sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .body {
   background-image: url("assets/bg-desktop-light.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-color: hsl(0, 0%, 98%);
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold",
-    sans-serif sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .icon {
   width: 2rem;
