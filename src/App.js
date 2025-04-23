@@ -1,83 +1,122 @@
 import React from "react";
 import { useState } from "react";
-import Header from "./components/Header";
-import Create from "./components/Create";
-import Todos from "./components/Todos";
-import Filter from "./components/Filter";
+import "./index.css";
+//import { useState } from "react";
+import Head from "./components/Head";
+import Showglass from "./components/Showglass";
+import About from "./components/About";
+import Cart from "./components/Cart";
+import Sidebar from "./components/Sidebar";
+import Showcart from "./components/Showcart";
+
+import img1 from "./assets/image-product-1.jpg";
+import img2 from "./assets/image-product-2.jpg";
+import img3 from "./assets/image-product-3.jpg";
+import img4 from "./assets/image-product-4.jpg";
+import imgt1 from "./assets/image-product-1-thumbnail.jpg";
+import imgt2 from "./assets/image-product-2-thumbnail.jpg";
+import imgt3 from "./assets/image-product-3-thumbnail.jpg";
+import imgt4 from "./assets/image-product-4-thumbnail.jpg";
+
+const Products = [
+  {
+    Name: "image-product-1",
+    source: img1,
+    thumbnail: imgt1,
+    likes: 0,
+    dislike: 0,
+    left: -2100,
+    Ratings: 0,
+    comments: [],
+    className: "showglass1",
+    prices: 250,
+  },
+  {
+    Name: "image-product-2",
+    source: img2,
+    thumbnail: imgt2,
+    likes: 0,
+    left: -1400,
+    dislike: 0,
+    Ratings: 0,
+    comments: [],
+    className: "showglass2",
+    prices: 750,
+  },
+  {
+    Name: "image-product-3",
+    source: img3,
+    likes: 0,
+    thumbnail: imgt3,
+    left: -700,
+    dislike: 0,
+    Ratings: 0,
+    comments: [],
+    className: "showglass3",
+    prices: 450,
+  },
+
+  {
+    Name: "image-product-4",
+    source: img4,
+    likes: 0,
+    thumbnail: imgt4,
+    left: 0,
+    dislike: 0,
+    Ratings: 0,
+    comments: [],
+    className: "showglass4",
+    prices: 550,
+  },
+];
+// eslint-disable-next-line
+
 const App = () => {
-  const [mode, setMode] = useState(true);
-  const [createitems, setcreateitems] = useState([]);
-  const [filter, Setfilter] = useState(1);
-  //function for light or dark mode by changing states of mode
-  function modestate(modevar) {
-    setMode(!modevar);
+  const [sidebar, setSidebar] = useState(false);
+  const [hidecart, setHidecart] = useState(false);
+  const [price, setPrice] = useState("");
+  const [cartnumber, setCartnumber] = useState(0);
+  const [productposition, setProductposition] = useState(3);
+  const [CartProduct, setCartProduct] = useState([]);
+  ////////////////////////////
+  //function that handles the state for the  in slide in and out of the nav bar
+  function handleslide() {
+    setSidebar(!sidebar);
   }
 
-  //function to clear all ticked items
-  function deleteitems(delitem) {
-    setcreateitems(
-      delitem.filter((elem) => {
-        return !elem.state;
-      })
-    );
-  }
-  //function that deletes 1 item
-  function deleteone(delitem, i) {
-    setcreateitems(
-      delitem.filter((elem) => {
-        return Number(elem.id) !== Number(i);
-      })
-    );
-    //setcreateitems(());
-    // console.log(elem.id, e.target.dataset.user);
-  }
-  //setting filter
-  function all() {
-    Setfilter(1);
-    //return delitem.filter((elem) => {
-    // return !elem.state;
-    //});
-  }
-  function active() {
-    Setfilter(2);
-    //return delitem.filter((elem) => {
-    //return !elem.state;
-    //});
-  }
-  function completed() {
-    Setfilter(3);
-    //return delitem.filter((elem) => {
-    //return !elem.state;
-    //});
-  }
-  /////////////////////////
-
-  function handlecreateitem(items) {
-    setcreateitems([...createitems, items]);
+  function priceofproduct(prices) {
+    setPrice(prices);
   }
   return (
-    <div>
-      <div className="app">
-        <Header modestate={modestate} mode={mode} />
-        <Create oncreateitems={handlecreateitem} mode={mode} />
-        <Todos
-          setitem={setcreateitems}
-          deleteone={deleteone}
-          item={createitems}
-          onDeleteitems={deleteitems}
-          mode={mode}
-          filter={filter}
-        />
-        <Filter
-          createitems={createitems}
-          oncreateitems={setcreateitems}
-          active={active}
-          completed={completed}
-          all={all}
-          mode={mode}
-          filter={filter}
-        />
-      </div>
+    <div className="body">
+      <Head
+        handleslide={handleslide}
+        CartProduct={CartProduct}
+        hidecart={hidecart}
+        setHidecart={setHidecart}
+      />
+      <Sidebar handleslide={handleslide} sidebar={sidebar} />
+      <Showcart
+        CartProduct={CartProduct}
+        cartnumber={cartnumber}
+        hidecart={hidecart}
+      />
+      <Showglass
+        productposition={productposition}
+        setProductposition={setProductposition}
+        priceofproduct={priceofproduct}
+        products={Products}
+      />
+      <About />
+      <Cart
+        productposition={productposition}
+        price={price}
+        cartnumber={cartnumber}
+        setCartnumber={setCartnumber}
+        CartProduct={CartProduct}
+        Products={Products}
+        setCartProduct={setCartProduct}
+      />
     </div>
   );
 };
