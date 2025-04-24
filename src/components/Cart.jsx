@@ -51,10 +51,8 @@ const Amount = ({ price }) => {
   return (
     <div className="Amount">
       <div className="Slashed">
-        <h1>
-          ${price / 2}
-          <span>50%</span>
-        </h1>
+        <h1>${price / 2}</h1>
+        <span>50%</span>
       </div>
       <div className="through">${price}</div>
     </div>

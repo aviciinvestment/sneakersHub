@@ -4,7 +4,7 @@ import "../index.css";
 const About = () => {
   return (
     <div className="About">
-      <h5>Sneaker Company</h5>
+      <p>Sneaker Company</p>
       <h2>Fall Limited Edition Sneakers</h2>
       <p>
         These low-profile sneakers are your perfect casual wear companion.
