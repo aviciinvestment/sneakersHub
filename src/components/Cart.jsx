@@ -1,5 +1,6 @@
 import React from "react";
 import cart from "../assets/icon-cart.svg";
+import "../index.css";
 const cartcontainer = [];
 
 const Cart = ({

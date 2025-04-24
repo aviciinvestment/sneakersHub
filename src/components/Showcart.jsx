@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "./Cart";
 import Delete from "../assets/icon-delete.svg";
+import "../index.css";
 // eslint-disable-next-line
 
 const Showcart = ({ CartProduct, hidecart, setCartProduct, deletes }) => {
