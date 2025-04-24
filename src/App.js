@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./index.css";
 //import { useState } from "react";
 import Head from "./components/Head";
@@ -72,12 +72,15 @@ const Products = [
 // eslint-disable-next-line
 
 const App = () => {
+  // eslint-disable-next-line
+  const deletes = useRef(false);
   const [sidebar, setSidebar] = useState(false);
   const [hidecart, setHidecart] = useState(false);
   const [price, setPrice] = useState("");
   const [cartnumber, setCartnumber] = useState(0);
   const [productposition, setProductposition] = useState(3);
   const [CartProduct, setCartProduct] = useState([]);
+
   ////////////////////////////
   //function that handles the state for the  in slide in and out of the nav bar
   function handleslide() {
@@ -100,23 +103,29 @@ const App = () => {
         CartProduct={CartProduct}
         cartnumber={cartnumber}
         hidecart={hidecart}
-      />
-      <Showglass
-        productposition={productposition}
-        setProductposition={setProductposition}
-        priceofproduct={priceofproduct}
-        products={Products}
-      />
-      <About />
-      <Cart
-        productposition={productposition}
-        price={price}
-        cartnumber={cartnumber}
-        setCartnumber={setCartnumber}
-        CartProduct={CartProduct}
-        Products={Products}
         setCartProduct={setCartProduct}
+        deletes={deletes}
       />
+      <div className="sections">
+        <Showglass
+          productposition={productposition}
+          setProductposition={setProductposition}
+          priceofproduct={priceofproduct}
+          products={Products}
+        />
+        <div>
+          <About />
+          <Cart
+            productposition={productposition}
+            price={price}
+            cartnumber={cartnumber}
+            setCartnumber={setCartnumber}
+            CartProduct={CartProduct}
+            Products={Products}
+            setCartProduct={setCartProduct}
+          />
+        </div>
+      </div>
     </div>
   );
 };

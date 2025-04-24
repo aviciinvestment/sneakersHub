@@ -7,23 +7,23 @@ const Sidebar = ({ handleslide, sidebar }) => {
   return (
     <div className="sidebar" style={sidebar ? { left: "0" } : null}>
       <div className="cancelside" onClick={handleslide}>
-        <h1>×</h1>
+        <h3>×</h3>
       </div>
       <div>
         <div>
-          <h1>Collections</h1>
+          <h3>Collections</h3>
         </div>
         <div>
-          <h1>Men</h1>
+          <h3>Men</h3>
         </div>
         <div>
-          <h1>Women</h1>
+          <h3>Women</h3>
         </div>
         <div>
-          <h1>About</h1>
+          <h3>About</h3>
         </div>
         <div>
-          <h1>Contact</h1>
+          <h3>Contact</h3>
         </div>
       </div>
     </div>

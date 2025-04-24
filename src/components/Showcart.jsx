@@ -3,7 +3,7 @@ import { Button } from "./Cart";
 import Delete from "../assets/icon-delete.svg";
 // eslint-disable-next-line
 
-const Showcart = ({ CartProduct, hidecart }) => {
+const Showcart = ({ CartProduct, hidecart, setCartProduct, deletes }) => {
   document.body.style.overflow = hidecart ? "hidden" : "";
   return (
     <div
@@ -27,6 +27,10 @@ const Showcart = ({ CartProduct, hidecart }) => {
                     key={i}
                     image={elem.source}
                     price={elem.prices}
+                    datauser={i}
+                    CartProduct={CartProduct}
+                    setCartProduct={setCartProduct}
+                    deletes={deletes}
                   />
                 );
               })}
@@ -40,7 +44,15 @@ const Showcart = ({ CartProduct, hidecart }) => {
     </div>
   );
 };
-const Cartinfo = ({ image, price, number }) => {
+const Cartinfo = ({
+  image,
+  price,
+  number,
+  datauser,
+  CartProduct,
+  setCartProduct,
+  deletes,
+}) => {
   return (
     <div className="cartinfo">
       <div>
@@ -53,7 +65,15 @@ const Cartinfo = ({ image, price, number }) => {
         </h3>
       </div>
       <div>
-        <img src={Delete} alt="Delete" />
+        <img
+          onClick={(e) => {
+            CartProduct[e.target.dataset.user].state = deletes.current;
+            setCartProduct(CartProduct.filter((items) => items.state));
+          }}
+          data-user={datauser}
+          src={Delete}
+          alt="Delete"
+        />
       </div>
     </div>
   );

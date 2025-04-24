@@ -1,6 +1,7 @@
 import React from "react";
 import cart from "../assets/icon-cart.svg";
 const cartcontainer = [];
+
 const Cart = ({
   price,
   cartnumber,
@@ -8,11 +9,14 @@ const Cart = ({
   productposition,
   Products,
   setCartProduct,
+  CartProduct,
 }) => {
   return (
     <div className="carts">
-      <Amount price={price} />
-      <Add cartnumber={cartnumber} setCartnumber={setCartnumber} />
+      <div className="cartfirst">
+        <Amount price={price} />
+        <Add cartnumber={cartnumber} setCartnumber={setCartnumber} />
+      </div>
       <Button color="">
         <div
           onClick={() => {
@@ -21,8 +25,11 @@ const Cart = ({
               source: Products[productposition].thumbnail,
               prices: Products[productposition].prices,
               number: cartnumber,
+              state: true,
             });
-            setCartProduct(cartcontainer);
+            const container = cartcontainer.filter((item) => item.state);
+            setCartProduct(container);
+
             setCartnumber(0);
           }}
           style={{

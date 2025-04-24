@@ -36,20 +36,23 @@ const Showglass = ({
     // eslint-disable-next-line
   }, []);
   return (
-    <div className="showglass">
-      <div className="slidebuttons">
-        <Prev className="showglass_prev" prevclick={prevclick} />
-        <Next className="showglass_next" nextclick={nextclick} />
-      </div>
-      <div className="showglassdiv">
-        {products.map((element) => (
-          <Shoes
-            key={element.Name}
-            className={element.className}
-            image={element.source}
-            left={`${element.left}px`}
-          />
-        ))}
+    <div>
+      <div className="showglass">
+        <div className="slidebuttons">
+          <Prev className="showglass_prev" prevclick={prevclick} />
+          <Next className="showglass_next" nextclick={nextclick} />
+        </div>
+        <div className="showglassdiv">
+          <div className="screen"></div>
+          {products.map((element) => (
+            <Shoes
+              key={element.Name}
+              className={element.className}
+              image={element.source}
+              left={`${element.left}px`}
+            />
+          ))}
+        </div>
       </div>
       <Feedback />
     </div>
@@ -57,14 +60,7 @@ const Showglass = ({
 };
 const Feedback = () => {
   return (
-    <div
-      style={{
-        position: "relative",
-        top: "310px",
-        width: "100%",
-        fontSize: "20px",
-      }}
-    >
+    <div className="feedback">
       <hr />
       <div>
         <span>🤍</span>

@@ -15,7 +15,7 @@ const Head = ({ handleslide, CartProduct, setHidecart, hidecart }) => {
     <div className="head">
       <>
         <div className="menu">
-          <div onClick={handleslide}>
+          <div className="largeslide" onClick={handleslide}>
             <img src={menu} alt="menu" />
           </div>
           <div>
