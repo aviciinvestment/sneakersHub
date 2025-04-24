@@ -41,11 +41,13 @@ const Head = ({ handleslide, CartProduct, setHidecart, hidecart }) => {
                       backgroundColor: "hsl(26, 100%, 55%)",
                       borderRadius: "50px",
                       width: "15px",
+                      height: "15px",
+                      display: "flex",
                       justifyContent: "center",
+                      alignItems: "center",
                       top: "15px",
                       fontSize: "1px",
                       color: "white",
-                      display: "flex",
                     }
                   : null
               }
